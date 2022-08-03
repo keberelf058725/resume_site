@@ -24,3 +24,9 @@ div.cv_grid-template {
     padding: 10px 5px;
     font-size: 18px;
   }
+
+img.cv_photo {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+}
