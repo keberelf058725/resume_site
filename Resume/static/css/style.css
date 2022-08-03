@@ -1,7 +1,26 @@
-div.CV_form {
+div.CV_form_body {
 margin: auto;
   width: 640px;
   padding: 50px;
   font-family: 'Avenir', sans-serif;
   color: #33475b;
 }
+
+div.cv_grid-template {
+    padding: 10px;
+    background#color: #E6E6E6;
+    display: grid;
+    grid-gap: 10px;
+    grid-row-gap: 30px;
+    grid: 'pic cv';
+    margin-left: 5%;
+    margin-right: 0%;
+
+  }
+
+  .cv_grid-template > div {
+
+    text-align: Center;
+    padding: 10px 5px;
+    font-size: 18px;
+  }

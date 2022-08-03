@@ -11,7 +11,14 @@ def home_view(request, *args, **kwargs):
         if form.is_valid():
             form.save()
 
-        return render(request, 'cv.html', {})
+            Name = request.POST['Name']
+            link = request.POST['link']
+            Job_type = request.POST['Job_type']
+            Field_Applied = request.POST['Field_Applied']
+
+            context = {'Name': Name, 'link': link, 'Job_type':Job_type, 'Field_Applied': Field_Applied}
+
+            return render(request, 'cv.html', context)
 
     else:
         form = CV_Letter_Form()

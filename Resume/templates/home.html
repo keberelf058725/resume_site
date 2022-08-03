@@ -4,8 +4,16 @@
 
 {% load static %}
 <body>
-<div class="CV_form"><strong>
-    Hello There! Welcome to my virtual resume! Let's
+<div class="CV_form_body"><strong>
+    <h3>
+        Hello There!
+    </h3>
+        <p>
+            Welcome to my virtual resume!
+        </p>
+    <p>
+        To get started let's get some information from you to customize this experience!
+    </p>
     <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
 
         {% csrf_token %}
