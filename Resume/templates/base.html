@@ -29,42 +29,39 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if user.is_superuser %}
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Form</a>
                 </li>
+                {% endif %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false"> Resume Items </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-item" aria-current="page" href="{% url 'cv' %}">
+                            <a class="dropdown-item" aria-current="page" href="jobhx">
                                 Job History
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-item" aria-current="page" href="#">
+                            <a class="dropdown-item" aria-current="page" href="references">
                                 References
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-item" aria-current="page" href="#">
+                            <a class="dropdown-item" aria-current="page" href="school">
                                 School
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-item" aria-current="page" href="#">
-                                References
+                            <a class="dropdown-item" aria-current="page" href="skills">
+                                Skills
                             </a>
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-item" aria-current="page" href="#">
-                                Other
-                            </a>
-                        </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">More to come!</a></li>
+                        <li><a class="dropdown-item" href="call">Schedule a Meeting</a></li>
                     </ul>
                 </li>
             </ul>

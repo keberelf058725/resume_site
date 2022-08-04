@@ -1,15 +1,32 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
+<!DOCTYPE html>
 {% load static %}
-<body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <title>KHC</title>
+</head>
+<body class="form" style="background-image: url('{% static 'beach.jpg'%}');">
+<a href="{% url 'hc_sw' %}">Inside View</a>
 <div class="CV_form_body"><strong>
     <h3>
         Hello There!
     </h3>
         <p>
-            Welcome to my virtual resume!
+            Welcome to my online resume!
         </p>
     <p>
         To get started let's get some information from you to customize this experience!
@@ -20,7 +37,13 @@
         {{ form.as_p }}
         <input class="btn btn-primary" type="submit" value="Submit">
     </form>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
 </strong>
 </div>
 </body>
-{% endblock %}

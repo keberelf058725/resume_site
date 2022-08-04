@@ -3,7 +3,7 @@
 {% block content %}
 
 {% load static %}
-<body>
+<body class="cv" style="background-image: url('{% static 'beach.jpg'%}');">
 <div class="CV_form_response">
     <div class="cv_grid-template">
         <div class="cv_about" style="grid-area: abt">
@@ -12,7 +12,7 @@
             Boynton Beach, FL 33436<br>
             kcaldonjr@gmail.com<br>
             +1 860 899 4910<br>
-            <a href="" target="_blank">Github</a> <br>
+            <a href="https://github.com/keberelf058725" target="_blank">Github</a> <br>
             <a href="https://www.linkedin.com/in/kevin-caldon-71b196150/" target="_blank">LinkedIn</a> <br>
         </div>
         <div class="cs_img" style="grid-area: pic">
@@ -53,10 +53,6 @@
 
             <p>Kevin H. Caldon Jr.</p>
         </div>
-        {{Name|safe}}
-        {{link|safe}}
-        {{Job_type|safe}}
-        {{Field_Applied|safe}}
     </div>
 </div>
 </body>
