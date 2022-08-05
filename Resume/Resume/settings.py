@@ -22,11 +22,11 @@ LOGIN_REDIRECT_URL = 'home'
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY='django-insecure-$s&uo1inu!1n3xi*g(=!&4p6)=na7hwt#=fiqf(qg@1&ab_eya'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.201.162',]
+ALLOWED_HOSTS = ['kcaldonjr0587.pythonanywhere.com',]
 
 
 # Application definition
@@ -117,11 +117,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+#STATICFILES_DIRS = [
+#   os.path.join(BASE_DIR, "static"),
+#]
 
-STATIC_URL = 'Users/kcaldon/PycharmProjects/resume_site/Resume/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+STATIC_URL = '/home/kcaldonjr0587/resume_site/Resume/static'
+
+#STATIC_URL = 'Users/kcaldon/Pycharm Projects/resume_site/Resume/static/'
 
 
 # Default primary key field type
