@@ -69,7 +69,7 @@ def jobhx_view(request, *args, **kwargs):
     return render(request, "jobhx.html", {})
 
 def school_view(request, *args, **kwargs):
-    return render(request, "school.html", {})
+    return render(request, "School.html", {})
 
 def ref_view(request, *args, **kwargs):
     return render(request, "references.html", {})
