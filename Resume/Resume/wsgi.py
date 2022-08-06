@@ -15,5 +15,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BH_DJANGO.settings')
 
 application = get_wsgi_application()
 
-project_folder = os.path.expanduser('/home/kcaldonjr0587/resume_site/')  # adjust as appropriate
+project_folder = os.path.expanduser('/home/kcaldonjr0587/resume_site/Resume')  # adjust as appropriate
 load_dotenv(os.path.join(project_folder, '.env'))
