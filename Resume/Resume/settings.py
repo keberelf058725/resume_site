@@ -24,7 +24,7 @@ LOGIN_REDIRECT_URL = 'home'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY='django-insecure-$s&uo1inu!1n3xi*g(=!&4p6)=na7hwt#=fiqf(qg@1&ab_eya'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['kcaldonjr0587.pythonanywhere.com',]
 
