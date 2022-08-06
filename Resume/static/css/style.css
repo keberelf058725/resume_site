@@ -289,3 +289,10 @@ div.about {
 font-weight: bold;
 text-align: center;
 }
+div.construction{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
