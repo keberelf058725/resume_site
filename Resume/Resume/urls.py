@@ -19,7 +19,7 @@ from resume_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home_view, name='home'),
+    path('cover_letter_customize', views.cover_letter_customize_view, name='cover_letter_customize'),
     path('hc_sw', views.cv_bh_sa_view, name='hc_sw'),
     path('o_p', views.cv_op_view, name='o_p'),
     path('o_da', views.cv_da_view, name='o_da'),
@@ -28,4 +28,6 @@ urlpatterns = [
     path('references', views.ref_view, name='references'),
     path('skills', views.skills_view, name='skills'),
     path('call', views.call_view, name='call'),
+    path('', views.home_view, name='home'),
+
 ]

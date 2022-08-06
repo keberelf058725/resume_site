@@ -4,8 +4,10 @@ from .forms import CV_Letter_Form
 
 # Create your views here.
 
-
 def home_view(request, *args, **kwargs):
+    return render(request, "home.html", {})
+
+def cover_letter_customize_view(request, *args, **kwargs):
     if request.method == 'POST':
         form = CV_Letter_Form(request.POST)
         if form.is_valid():
@@ -51,7 +53,7 @@ def home_view(request, *args, **kwargs):
     else:
         form = CV_Letter_Form()
 
-    return render(request, "home.html", {'form': form})
+    return render(request, "cover_letter_customize.html", {'form': form})
 
 
 def cv_bh_sa_view(request, *args, **kwargs):

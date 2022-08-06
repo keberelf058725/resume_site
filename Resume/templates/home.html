@@ -1,49 +1,42 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<body class="home" style="background-image: url('{% static 'beach.jpg'%}');">
+<div class="H_grid">
+    <div class="about" style="grid-area: one">
+        <h4 style="text-align: center">Welcome!</h4>
+        Thank you for your interest in me as a candidate for the open position at your company!<br>
+        If you would like a pdf copy of my resume please click on Download link in the top right corner of your
+        screen!<br>
+        Along with the download button I also have links to areas of my virtual resume and some presentations of a few
+        of my skill sets<br>
+        If you would like to schedule an interview with me please navigate to the Schedule a Meeting Section of the Nav
+        bar!
 
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-            crossorigin="anonymous"></script>
-    <title>KHC</title>
-</head>
-<body class="form" style="background-image: url('{% static 'beach.jpg'%}');">
-<a href="{% url 'hc_sw' %}">Inside View</a>
-<div class="CV_form_body"><strong>
-    <h3>
-        Hello There!
-    </h3>
-        <p>
-            Welcome to my online resume!
-        </p>
-    <p>
-        To get started let's get some information from you to customize this experience!
-    </p>
-    <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
-
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input class="btn btn-primary" type="submit" value="Submit">
-    </form>
-{% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-danger" role="alert">
-        {{ message }}
     </div>
-    {% endfor %}
-    {% endif %}
-</strong>
+    <div class="my_img" style="grid-area: two">
+        <img class="cv_photo" src="{% static 'cv_photo.jpg' %}" alt="logo">
+    </div>
+</div>
+<div class="H_grid">
+    <div class="my_img" style="grid-area: one">
+        <img class="" src="{% static 'dg.jpg' %}" alt="logo">
+    </div>
+    <div class="about" style="grid-area: two">
+        <h4 style="text-align: center">About Me</h4>
+        I am a very hard worker and a quick learner which<br> makes for the perfect storm of talent and skills!<br>
+        But lets put that aside for a second since what would<br> life be with constant work and no play?<br>
+        When I am not working you can usually find me on a disc<br> golf course, this is one of my favorite past times!<br>
+        So much so that I volunteered to be spend some of<br> my free time as the Treasure for the 2022-2023 <a href="https://palmbeachdiscgolf.com/" target="_blank">Palm Beach Disc Golf</a>
+        Club Board of Directors.<br>
+        Along with disc golf I also enjoy playing video games,<br> snorkeling at the beach, and learning as much as I can
+        about programing.<br>
+    </div>
+</div>
+<div class="home_con_title">
+    <h2>Thank you for visiting my online resume!</h2>
 </div>
 </body>
+{% endblock %}
