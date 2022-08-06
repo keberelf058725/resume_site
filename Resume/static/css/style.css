@@ -185,18 +185,22 @@ div.ref_grid {
 
   }
 div.indv_ref1 {
-  width: 300px;
-  height: 200px;
+  width: 360px;
+  height: 300px;
   padding: 40px;
   font-family: 'Avenir', sans-serif;
   color: #33475b;
 background-color:rgba(255, 255, 255, 0.4);
 border-radius: 50px;
 font-weight: bold;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-div.indv_ref2 {  width: 300px;
-  height: 200px;
+div.indv_ref2 {  width: 360px;
+  height: 300px;
   padding: 40px;
   font-family: 'Avenir', sans-serif;
   color: #33475b;
@@ -204,16 +208,24 @@ background-color:rgba(255, 255, 255, 0.4);
 border-radius: 50px;
 font-weight: bold;
 text-align: right;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-div.indv_ref3 {  width: 300px;
-  height: 200px;
+div.indv_ref3 {  width: 360px;
+  height: 300px;
   padding: 40px;
   font-family: 'Avenir', sans-serif;
   color: #33475b;
 background-color:rgba(255, 255, 255, 0.4);
 border-radius: 50px;
 font-weight: bold;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
  /* School */
