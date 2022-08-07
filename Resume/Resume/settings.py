@@ -83,10 +83,17 @@ USE_I18N = True
 USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-STATIC_URL = 'Users/kcaldon/PycharmProjects/resume_site/Resume/static/'
+
+#STATICFILES_DIRS = [
+#   os.path.join(BASE_DIR, "static"),
+#]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+STATIC_URL = '/home/kcaldonjr0587/resume_site/Resume/static'
+
+#STATIC_URL = 'Users/kcaldon/Pycharm Projects/resume_site/Resume/static/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
