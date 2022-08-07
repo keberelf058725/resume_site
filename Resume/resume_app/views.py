@@ -134,7 +134,7 @@ def call_view(request, *args, **kwargs):
 def dl_resume_view(request, *args, **kwargs):
     if request.method == 'GET':
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        filepath = BASE_DIR + '/Static/Kevin Caldon - Resume.pdf'
+        filepath = BASE_DIR + '/static/Kevin Caldon - Resume.pdf'
         path = open(filepath, 'rb')
         mime_type, _ = mimetypes.guess_type(filepath)
         response = HttpResponse(path, content_type=mime_type)
