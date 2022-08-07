@@ -29,5 +29,6 @@ urlpatterns = [
     path('skills', views.skills_view, name='skills'),
     path('call', views.call_view, name='call'),
     path('', views.home_view, name='home'),
+    path('dl_resume', views.dl_resume_view, name='dl_resume'),
 
 ]

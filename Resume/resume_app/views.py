@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
-from .forms import CV_Letter_Form
-
-
+from .forms import CV_Letter_Form, email_form
+from django.core.mail import send_mail
+from django.conf import settings
+from django.template.loader import render_to_string
+from datetime import datetime
+import os
+import mimetypes
+from django.http import HttpResponse
 # Create your views here.
 
 def home_view(request, *args, **kwargs):
@@ -78,4 +83,63 @@ def skills_view(request, *args, **kwargs):
     return render(request, "skills.html", {})
 
 def call_view(request, *args, **kwargs):
-    return render(request, "call.html", {})
+    if request.method == 'POST':
+        form = email_form(request.POST)
+        if form.is_valid():
+            Name = form.cleaned_data['Name']
+            Email = form.cleaned_data['Email']
+            Meeting_type = form.cleaned_data['Meeting_type']
+            Time = form.cleaned_data['Time']
+            Date = form.cleaned_data['Date']
+            Time = Time.strftime("%I:%M %p")
+            Date = str(Date)
+            Date = datetime.strptime(Date, "%Y-%m-%d").strftime("%m/%d/%Y")
+            Time = str(Time)
+
+            if 'Zoom' in Meeting_type:
+                html = render_to_string('zoom_response.html',
+                                        {'Name': Name,
+                                         'Email': Email,
+                                         'Meeting_type': Meeting_type,
+                                         'Time': Time,
+                                         'Date': Date}
+                                        )
+
+                send_mail(Name + ' - ' + Meeting_type,'Form user is requesting a meeting at ' + Time + ' on ' + Date + ' their email is: ' + Email, 'myresumeonlinekcjr@gmail.com', ['kcaldonjr@gmail.com','myresumeonlinekcjr@gmail.com'])
+
+                send_mail(Name + ' - ' + Meeting_type, 'Meeting Details:',
+                          'myresumeonlinekcjr@gmail.com', [Email], html_message=html)
+
+            if 'Phone' in Meeting_type:
+                html = render_to_string('phone_response.html',
+                                        {'Name': Name,
+                                         'Email': Email,
+                                         'Meeting_type': Meeting_type,
+                                         'Time': Time,
+                                         'Date': Date})
+
+                send_mail(Name + ' - ' + Meeting_type,'Form user is requesting a meeting at ' + Time + ' on ' + Date + ' their email is: ' + Email, 'myresumeonlinekcjr@gmail.com', ['kcaldonjr@gmail.com','myresumeonlinekcjr@gmail.com'])
+
+                send_mail(Name + ' - ' + Meeting_type, 'Meeting Details:',
+                          'myresumeonlinekcjr@gmail.com', [Email], html_message=html)
+
+            return redirect('home')
+
+
+    else:
+        form = email_form()
+
+    return render(request, "call.html", {'form': form})
+
+def dl_resume_view(request, *args, **kwargs):
+    if request.method == 'GET':
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        filepath = BASE_DIR + '/Static/Kevin Caldon - Resume.pdf'
+        path = open(filepath, 'rb')
+        mime_type, _ = mimetypes.guess_type(filepath)
+        response = HttpResponse(path, content_type=mime_type)
+        response['Content-Disposition'] = "attachment; filename=%s" % 'Kevin Caldon - Resume.pdf'
+        return response
+    else:
+        pass
+    return redirect('home')

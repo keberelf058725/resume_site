@@ -3,10 +3,21 @@
 {% block content %}
 
 {% load static %}
-<body class="">
-<h1 style="text-align: center;">Sorry this Page is under construction!</h1>
-<div class="construction">
-<img class="con_gif" src="{% static 'construction_gif.gif' %}" alt="logo">
+<body class="form" style="background-image: url('{% static 'beach.jpg'%}');">
+<div class="CV_form_body">
+<form action="{% url 'call' %}" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
 </div>
 </body>
 
