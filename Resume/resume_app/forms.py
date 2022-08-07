@@ -3,7 +3,7 @@ from django import forms
 from .models import CV_Letter_Data
 from django.db.models.fields import BLANK_CHOICE_DASH
 
-link_choices = [('Indeed', 'Indeed'), ('Reference', 'Reference'), ('Direct Apply', 'Direct Apply')]
+link_choices = [('Indeed', 'Indeed'), ('Reference', 'Reference'), ('Direct Apply', 'Direct Apply'),('LinkedIN', 'LinkedIN')]
 field_type_choices = [('Yes', 'Yes'), ('No', 'No')]
 job_type_choices = [('Data Analyst', 'Data Analyst'), ('Programing', 'Programing'),
                     ('Software Analyst', 'Software Analyst'), ('Other', 'Other')]

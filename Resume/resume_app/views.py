@@ -18,10 +18,13 @@ def cover_letter_customize_view(request, *args, **kwargs):
         if form.is_valid():
             form.save()
 
-            Name = request.POST['Name']
-            link = request.POST['link']
-            Job_type = request.POST['Job_type']
-            Field_Applied = request.POST['Field_Applied']
+            Name = form.cleaned_data['Name']
+            link = form.cleaned_data['link']
+            Job_type = form.cleaned_data['Job_type']
+            Field_Applied = form.cleaned_data['Field_Applied']
+
+            send_mail(Name + ' Filled out the Cover Letter Form',Name + ' - ' + link + ' - ' + Job_type + ' - ' + Field_Applied,
+                      'myresumeonlinekcjr@gmail.com', ['kcaldonjr@gmail.com', 'myresumeonlinekcjr@gmail.com'])
 
             #selection for all healthcare jobs
             if 'Yes' in Job_type:
