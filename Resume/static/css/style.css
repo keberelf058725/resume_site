@@ -304,6 +304,7 @@ border-radius: 50px;
 margin-bottom: 5%;
   }
 
+
 div.my_img {
 display: flex;
   align-items: center;
@@ -389,6 +390,12 @@ div.H_grid {width: 375px;  display: grid;
 div.my_img {display: none;
   align-items: initial;
   justify-content: initial;}
+
+#H_grid2{
+visibility: hidden;
+    clear: both;
+    display: none;
+}
 
    /* references */
 
