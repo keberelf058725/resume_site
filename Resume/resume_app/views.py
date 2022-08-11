@@ -7,10 +7,17 @@ from datetime import datetime
 import os
 import mimetypes
 from django.http import HttpResponse
+from .graph import ammount_trained
 # Create your views here.
 
 def home_view(request, *args, **kwargs):
-    return render(request, "home.html", {})
+    if request.method == 'GET':
+
+        context = {}
+
+        context['trained_chart'] = ammount_trained()
+
+    return render(request, "home.html", context)
 
 def cover_letter_customize_view(request, *args, **kwargs):
     if request.method == 'POST':

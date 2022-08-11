@@ -250,6 +250,11 @@ font-weight: bold;
 
 /* Home */
 
+img.cv_photo3 {
+width: 175px;
+border-radius: 50%;
+}
+
 
 img.cv_photo2 {
 width: 300px;
@@ -303,7 +308,8 @@ div.my_img {
 display: flex;
   align-items: center;
   justify-content: center;
-opacity: 0.5;
+opacity: 1;
+
 
 }
 

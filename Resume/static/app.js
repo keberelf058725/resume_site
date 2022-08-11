@@ -33,3 +33,4 @@ tl4.fromTo("#skills1",{scale: 1},{scale: 1.5}).to("#skills1",{scale: 1}
 gsap.registerPlugin(ScrollTrigger);
 gsap.fromTo(".home_con_title", {opacity: 0}, {opacity: 1, duration: 3, scrollTrigger: ".home_con_title"});
 gsap.fromTo("#jc3", {opacity: 0}, {opacity: 1, duration: 3, scrollTrigger: "#jc3"});
+
