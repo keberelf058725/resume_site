@@ -68,7 +68,7 @@ def ammount_trained():
 
     ax.set_xlabel('Department', labelpad=15, color=lbcolor)
     ax.set_ylabel('Count of Trained', labelpad=15, color=lbcolor)
-    ax.set_title('Count of New Hires Trained', pad=15, color=lbcolor,
+    ax.set_title('Count of Employees Trained in Current Software Analyst Role', pad=15, color=lbcolor,
                  weight='bold')
     ax.margins(0)
     #ax.set_facecolor()
