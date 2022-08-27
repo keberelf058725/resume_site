@@ -172,7 +172,8 @@ div.ref_grid {
     grid-row-gap: 50px;
     grid: 'one two'
     'three four'
-    'five six';
+    'five six'
+    'seven eight';
     margin-left: 0%;
     margin-right: 0%;
   }
@@ -214,6 +215,20 @@ display: flex;
 }
 
 div.indv_ref3 {  width: 360px;
+  height: 300px;
+  padding: 40px;
+  font-family: 'Avenir', sans-serif;
+  color: #33475b;
+background-color:rgba(255, 255, 255, 0.4);
+border-radius: 50px;
+font-weight: bold;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+div.indv_ref4 {  width: 360px;
   height: 300px;
   padding: 40px;
   font-family: 'Avenir', sans-serif;

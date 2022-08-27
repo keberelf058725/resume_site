@@ -20,9 +20,12 @@ tl3.fromTo(".indv_ref1", 1, {opacity: 0}, {opacity: 1, duration: 2}
 ).fromTo(".indv_ref2", {x: "400"}, {rotation: 360, x: 100, duration: 1}
 ).fromTo(".indv_ref3", 1, {opacity: 0}, {opacity: 1, duration: 2}
 ).fromTo(".indv_ref3", {x: "-400"}, {rotation: 360, x: 100, duration: 1}
+).fromTo(".indv_ref4", 1, {opacity: 0}, {opacity: 1, duration: 2}
+).fromTo(".indv_ref4", {x: "400"}, {rotation: 360, x: 100, duration: 1}
 ).fromTo(".indv_ref1",{scale: 1},{scale: 1.5}).to(".indv_ref1",{scale: 1}
 ).fromTo(".indv_ref2",{scale: 1},{scale: 1.5}).to(".indv_ref2",{scale: 1}
-).fromTo(".indv_ref3",{scale: 1},{scale: 1.5}).to(".indv_ref3",{scale: 1})
+).fromTo(".indv_ref3",{scale: 1},{scale: 1.5}).to(".indv_ref3",{scale: 1}
+).fromTo(".indv_ref4",{scale: 1},{scale: 1.5}).to(".indv_ref4",{scale: 1})
 ;
 
 tl4.fromTo("#skills1",{scale: 1},{scale: 1.5}).to("#skills1",{scale: 1}
