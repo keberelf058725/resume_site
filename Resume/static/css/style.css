@@ -473,14 +473,145 @@ background-color:rgba(255, 255, 255, 0.4);
 border-radius: 50px;
 font-weight: bold;
 }
+}
+
+/* iPhone landscape and iPad portrait */
+@media only screen and (max-device-width: 480px) and (max-device-width: 670px) {
+div.CV_form_response {width: 375px;margin: 0px;
+padding: 0px;}
+img.cv_photo {width: 20px;}
+img.cs_img {width: 30px; height: 30px;}
+div.cv_about {width: 370px;}
+div.cv_body {width: 370px;}
+div.cv_grid-template {padding: 0px;display: grid;
+    grid-gap: 0px;
+    grid-row-gap: 0px;
+    grid: 'null abt'
+    'null cv';
+    margin-left: 0%;
+    margin-right: 0%;}
+
+    /* job history*/
+    div.job_con_main {width: 375px; margin: 0px;padding: 0px;}
+div.job_container {width: 360px;
+height: 800px; }
+div.job_container2 {
+ width: 360px;
+  height: 1100px;}
+div.jb_grid {
+    padding: 10px;
+    background#color: #E6E6E6;
+    display: grid;
+    grid-gap: 0px;
+    grid-row-gap: 10px;
+    grid: 'one two'
+    'four three'
+    'five six';
+  }
+
+  .jb_grid > div {
+
+    text-align: left;
+    padding: 30px 20px;
+
+  }
 
 
+    /* form */
+div.CV_form_body {
+  width: 380px;}
 
+   /* home */
+div.home_con_title {width: 375px;}
+div.H_grid {width: 375px;  display: grid;
+    grid-gap: 0px;
+    grid-row-gap: 50px; grid: 'one'
+'two';}
+div.my_img {display: none;
+  align-items: initial;
+  justify-content: initial;}
 
+#H_grid2{
+visibility: hidden;
+    clear: both;
+    display: none;
+}
 
+   /* references */
 
+div.ref_con_main {
+margin: auto;
+  width: 375px;
+  padding: 0px;}
 
+div.ref_grid {
+    padding: 10px;
+    display: grid;
+    grid-gap: 0px;
+    grid-row-gap: 50px;
+    grid: 'one two'
+    'four three'
+    'five six';
+  }
 
+  .ref_grid > div {
 
+    text-align: left;
+    padding: 30px 20px;
+
+  }
+div.indv_ref1 {
+  width: 360px;
+  height: 300px;
+  padding: 40px;
+  font-family: 'Avenir', sans-serif;
+  color: #33475b;
+background-color:rgba(255, 255, 255, 0.4);
+border-radius: 50px;
+font-weight: bold;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+div.indv_ref2 {  width: 360px;
+  height: 300px;
+  padding: 40px;
+  font-family: 'Avenir', sans-serif;
+  color: #33475b;
+background-color:rgba(255, 255, 255, 0.4);
+border-radius: 50px;
+font-weight: bold;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+div.indv_ref3 {  width: 360px;
+  height: 300px;
+  padding: 40px;
+  font-family: 'Avenir', sans-serif;
+  color: #33475b;
+background-color:rgba(255, 255, 255, 0.4);
+border-radius: 50px;
+font-weight: bold;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+div.skills_container {
+  width: 360px;
+  height: 400px;
+  padding: 50px;
+  font-family: 'Avenir', sans-serif;
+  color: #33475b;
+background-color:rgba(255, 255, 255, 0.4);
+border-radius: 50px;
+font-weight: bold;
+}
 }
 

@@ -24,10 +24,14 @@ urlpatterns = [
     path('o_p', views.cv_op_view, name='o_p'),
     path('o_da', views.cv_da_view, name='o_da'),
     path('jobhx', views.jobhx_view, name='jobhx'),
+    path('pbi', views.power_bi_view, name='pbi'),
     path('school', views.school_view, name='school'),
     path('references', views.ref_view, name='references'),
+    path('sft', views.software_an_view, name='sft'),
     path('skills', views.skills_view, name='skills'),
     path('call', views.call_view, name='call'),
     path('', views.home_view, name='home'),
     path('dl_resume', views.dl_resume_view, name='dl_resume'),
 ]
+
+

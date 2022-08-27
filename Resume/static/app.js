@@ -2,6 +2,7 @@ const tl = new TimelineMax();
 const tl2 = new TimelineMax();
 const tl3 = new TimelineMax();
 const tl4 = new TimelineMax();
+const tl5 = new TimelineMax();
 
 tl.fromTo("#H_grid1", 1, {opacity: 0}, {opacity: 1, duration: 2}
 ).fromTo("#H_grid1", 1, {x: "-400"}, {x: '0%', ease: Power2.easeInOut});
@@ -34,3 +35,6 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.fromTo(".home_con_title", {opacity: 0}, {opacity: 1, duration: 3, scrollTrigger: ".home_con_title"});
 gsap.fromTo("#jc3", {opacity: 0}, {opacity: 1, duration: 3, scrollTrigger: "#jc3"});
 
+tl5.fromTo("#H_grid3", 1, {opacity: 0}, {opacity: 1, duration: 2}
+).fromTo("#H_grid4", 2, {opacity: 0}, {opacity: 1, duration: 2}
+).fromTo("#H_grid4", 3, {x: "-400"}, {x: '0%', ease: Power2.easeInOut});

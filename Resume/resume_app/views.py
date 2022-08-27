@@ -10,6 +10,19 @@ from django.http import HttpResponse
 from .graph import ammount_trained
 # Create your views here.
 
+def power_bi_view(request, *args, **kwargs):
+    return render(request, "pbi.html", {})
+
+
+def software_an_view(request, *args, **kwargs):
+    if request.method == 'GET':
+
+        context = {}
+
+        context['trained_chart'] = ammount_trained()
+
+    return render(request, "sftwr_analysis.html", context)
+
 def home_view(request, *args, **kwargs):
     if request.method == 'GET':
 
