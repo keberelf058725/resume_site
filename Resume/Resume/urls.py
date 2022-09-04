@@ -25,6 +25,7 @@ urlpatterns = [
     path('o_da', views.cv_da_view, name='o_da'),
     path('jobhx', views.jobhx_view, name='jobhx'),
     path('pbi', views.power_bi_view, name='pbi'),
+    path('pbi_embedded', views.pbi_embedded_view, name='pbi_embedded'),
     path('school', views.school_view, name='school'),
     path('references', views.ref_view, name='references'),
     path('sft', views.software_an_view, name='sft'),

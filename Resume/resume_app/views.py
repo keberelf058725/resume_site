@@ -166,3 +166,6 @@ def dl_resume_view(request, *args, **kwargs):
     else:
         pass
     return redirect('home')
+
+def pbi_embedded_view(request, *args, **kwargs):
+    return render(request, "PBI_interactive.html", {})
