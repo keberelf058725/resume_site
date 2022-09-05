@@ -320,6 +320,18 @@ margin-bottom: 5%;
   }
 
 
+div.H_grid_PBI {
+  margin: auto;
+  width: 1300px;
+  padding: 50px;
+  font-family: 'Avenir', sans-serif;
+  color: #33475b;
+background-color:rgba(255, 255, 255, 0.4);
+border-radius: 50px;
+}
+
+
+
 div.my_img {
 display: flex;
   align-items: center;
