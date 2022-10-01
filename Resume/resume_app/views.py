@@ -23,7 +23,7 @@ def software_an_view(request, *args, **kwargs):
 
     return render(request, "sftwr_analysis.html", context)
 
-def home_view(request, *args, **kwargs):
+def about_view(request, *args, **kwargs):
     if request.method == 'GET':
 
         context = {}
@@ -169,3 +169,6 @@ def dl_resume_view(request, *args, **kwargs):
 
 def pbi_embedded_view(request, *args, **kwargs):
     return render(request, "PBI_interactive.html", {})
+
+def home_view(request, *args, **kwargs):
+    return render(request, "index.html", {})

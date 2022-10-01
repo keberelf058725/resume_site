@@ -31,8 +31,7 @@ urlpatterns = [
     path('sft', views.software_an_view, name='sft'),
     path('skills', views.skills_view, name='skills'),
     path('call', views.call_view, name='call'),
-    path('', views.home_view, name='home'),
+    path('about_me', views.about_view, name='about_me'),
     path('dl_resume', views.dl_resume_view, name='dl_resume'),
+    path('', views.home_view, name='home'),
 ]
-
-
