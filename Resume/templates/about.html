@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<section class="banner_main">
+    <div class="container">
+        <div class="row d_flex">
+            <div class="col-md-5">
+                <div class="text-bg">
+                    <p>I began working in this IT as strictly a software analyst training end users on how to operate an
+                        EHR. This role also required that I
+                        provide basic end user support through a helpdesk and basic excel ad-hoc analytics. From this
+                        position I began teaching myself how to use platforms such as Microsoft Power BI and Power
+                        Automate
+                        to automate and improve my ad-hoc analytics. Once I was able to automate all of my reporting it
+                        allowed me to analyze other department's workflows to see where reporting could streamline those
+                        workflows or where data could be leveraged to solve ongoing issues. I have since moved on and
+                        began teaching myself Python primarily to use for analytics, but I can also use it to create
+                        cool projects such as this site. I am also
+                        in the middle of teaching myself SQL by building my own SQL server and applying that to
+                        a similar Django web App that will host analytics and excel analysis tools for end users to
+                        consume.
+                        I am a very quick learner which makes for the perfect storm of talent and skills!
+                        But let's put that aside for a second since what would life be with constant work and no play?
+                        When I am not working you can usually find me on a disc golf course, this is one of my favorite
+                        past times!
+                        So much so that I volunteered to spend some of my free time as the Treasure for the 2022-2023 Palm Beach Disc Golf
+                        Club Board of Directors.
+                        Along with disc golf I also enjoy playing video games, snorkeling at the beach, and learning as
+                        much as I can
+                        about programing.</p>
+                    <a href="https://palmbeachdiscgolf.com/" target="_blank">Palm Beach Disc Golf</a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="text-img">
+                    <figure><img class="cv_photo2" src="{% static 'DG.jpg' %}"/></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

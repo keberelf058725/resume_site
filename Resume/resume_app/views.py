@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CV_Letter_Form, email_form
+from .forms import contact_form
 from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
@@ -8,6 +8,8 @@ import os
 import mimetypes
 from django.http import HttpResponse
 from .graph import ammount_trained
+
+
 # Create your views here.
 
 def power_bi_view(request, *args, **kwargs):
@@ -16,21 +18,21 @@ def power_bi_view(request, *args, **kwargs):
 
 def software_an_view(request, *args, **kwargs):
     if request.method == 'GET':
-
         context = {}
 
         context['trained_chart'] = ammount_trained()
 
     return render(request, "sftwr_analysis.html", context)
 
+
 def about_view(request, *args, **kwargs):
     if request.method == 'GET':
-
         context = {}
 
         context['trained_chart'] = ammount_trained()
 
-    return render(request, "home.html", context)
+    return render(request, "about.html", context)
+
 
 def cover_letter_customize_view(request, *args, **kwargs):
     if request.method == 'POST':
@@ -43,18 +45,17 @@ def cover_letter_customize_view(request, *args, **kwargs):
             Job_type = form.cleaned_data['Job_type']
             Field_Applied = form.cleaned_data['Field_Applied']
 
-            send_mail(Name + ' Filled out the Cover Letter Form',Name + ' - ' + link + ' - ' + Job_type + ' - ' + Field_Applied,
+            send_mail(Name + ' Filled out the Cover Letter Form',
+                      Name + ' - ' + link + ' - ' + Job_type + ' - ' + Field_Applied,
                       'myresumeonlinekcjr@gmail.com', ['kcaldonjr@gmail.com', 'myresumeonlinekcjr@gmail.com'])
 
-            #selection for all healthcare jobs
+            # selection for all healthcare jobs
             if 'Yes' in Job_type:
-
-                context = {'Name': Name, 'link': link, 'Job_type':Job_type, 'Field_Applied': Field_Applied}
+                context = {'Name': Name, 'link': link, 'Job_type': Job_type, 'Field_Applied': Field_Applied}
 
                 return render(request, 'cv_bh_sa.html', context)
-            #selections for software but no healthcare
+            # selections for software but no healthcare
             if 'No' in Job_type and 'Software Analyst' in Field_Applied:
-
                 context = {'Name': Name, 'link': link, 'Job_type': Job_type, 'Field_Applied': Field_Applied}
 
                 return render(request, 'cv_bh_sa.html', context)
@@ -87,72 +88,59 @@ def cover_letter_customize_view(request, *args, **kwargs):
 def cv_bh_sa_view(request, *args, **kwargs):
     return render(request, "cv_bh_sa.html", {})
 
+
 def cv_op_view(request, *args, **kwargs):
     return render(request, "cv_op.html", {})
+
 
 def cv_da_view(request, *args, **kwargs):
     return render(request, "cv_da.html", {})
 
+
 def jobhx_view(request, *args, **kwargs):
     return render(request, "jobhx.html", {})
+
 
 def school_view(request, *args, **kwargs):
     return render(request, "School.html", {})
 
+
 def ref_view(request, *args, **kwargs):
     return render(request, "references.html", {})
+
 
 def skills_view(request, *args, **kwargs):
     return render(request, "skills.html", {})
 
+
 def call_view(request, *args, **kwargs):
     if request.method == 'POST':
-        form = email_form(request.POST)
+        form = contact_form(request.POST)
         if form.is_valid():
             Name = form.cleaned_data['Name']
             Email = form.cleaned_data['Email']
-            Meeting_type = form.cleaned_data['Meeting_type']
-            Time = form.cleaned_data['Time']
-            Date = form.cleaned_data['Date']
-            Time = Time.strftime("%I:%M %p")
-            Date = str(Date)
-            Date = datetime.strptime(Date, "%Y-%m-%d").strftime("%m/%d/%Y")
-            Time = str(Time)
+            Message = form.cleaned_data['Message']
 
-            if 'Zoom' in Meeting_type:
-                html = render_to_string('zoom_response.html',
-                                        {'Name': Name,
-                                         'Email': Email,
-                                         'Meeting_type': Meeting_type,
-                                         'Time': Time,
-                                         'Date': Date}
-                                        )
+            html = render_to_string('zoom_response.html',
+                                    {'Name': Name,
+                                     'Email': Email,
+                                     'Message': Message, }
+                                    )
 
-                send_mail(Name + ' - ' + Meeting_type,'Form user is requesting a meeting at ' + Time + ' on ' + Date + ' their email is: ' + Email, 'myresumeonlinekcjr@gmail.com', ['kcaldonjr@gmail.com','myresumeonlinekcjr@gmail.com'])
+            send_mail(Name + ' - is requesting a meeting','Their message is: ' + Message + '. ' + 'Their email is: ' + Email, 'myresumeonlinekcjr@gmail.com',
+                      ['kcaldonjr@gmail.com', 'myresumeonlinekcjr@gmail.com'])
 
-                send_mail(Name + ' - ' + Meeting_type, 'Meeting Details:',
-                          'myresumeonlinekcjr@gmail.com', [Email], html_message=html)
-
-            if 'Phone' in Meeting_type:
-                html = render_to_string('phone_response.html',
-                                        {'Name': Name,
-                                         'Email': Email,
-                                         'Meeting_type': Meeting_type,
-                                         'Time': Time,
-                                         'Date': Date})
-
-                send_mail(Name + ' - ' + Meeting_type,'Form user is requesting a meeting at ' + Time + ' on ' + Date + ' their email is: ' + Email, 'myresumeonlinekcjr@gmail.com', ['kcaldonjr@gmail.com','myresumeonlinekcjr@gmail.com'])
-
-                send_mail(Name + ' - ' + Meeting_type, 'Meeting Details:',
-                          'myresumeonlinekcjr@gmail.com', [Email], html_message=html)
+            send_mail(Name, 'Contact Details:',
+                      'myresumeonlinekcjr@gmail.com', [Email], html_message=html)
 
             return redirect('home')
 
 
     else:
-        form = email_form()
+        form = contact_form()
 
     return render(request, "call.html", {'form': form})
+
 
 def dl_resume_view(request, *args, **kwargs):
     if request.method == 'GET':
@@ -167,8 +155,10 @@ def dl_resume_view(request, *args, **kwargs):
         pass
     return redirect('home')
 
+
 def pbi_embedded_view(request, *args, **kwargs):
     return render(request, "PBI_interactive.html", {})
+
 
 def home_view(request, *args, **kwargs):
     return render(request, "index.html", {})

@@ -3,15 +3,15 @@ from django import forms
 from .models import CV_Letter_Data
 from django.db.models.fields import BLANK_CHOICE_DASH
 
-link_choices = [('Indeed', 'Indeed'), ('Reference', 'Reference'), ('Direct Apply', 'Direct Apply'),('LinkedIN', 'LinkedIN')]
+"""link_choices = [('Indeed', 'Indeed'), ('Reference', 'Reference'), ('Direct Apply', 'Direct Apply'),('LinkedIN', 'LinkedIN')]
 field_type_choices = [('Yes', 'Yes'), ('No', 'No')]
 job_type_choices = [('Data Analyst', 'Data Analyst'), ('Programing', 'Programing'),
                     ('Software Analyst', 'Software Analyst'), ('Other', 'Other')]
 
-email_choices = [('Zoom', 'Zoom'), ('Phone', 'Phone')]
+email_choices = [('Zoom', 'Zoom'), ('Phone', 'Phone')]"""
 
 
-class DatePickerInput(forms.DateInput):
+"""class DatePickerInput(forms.DateInput):
     input_type = 'date'
 
 
@@ -34,13 +34,18 @@ class CV_Letter_Form(ModelForm):
 
     class Meta:
         model = CV_Letter_Data
-        fields = ['Name', 'link', 'Job_type', 'Field_Applied']
+        fields = ['Name', 'link', 'Job_type', 'Field_Applied']"""
 
-
+"""
 class email_form(forms.Form):
     Name = forms.CharField(max_length=255, label='Your Name')
     Email = forms.EmailField(max_length=255, label='Your Email')
     Meeting_type = forms.CharField(label='What would be best Zoom or Phone? ',
                                    widget=forms.Select(choices=BLANK_CHOICE_DASH + email_choices))
     Time = forms.TimeField(label='What would be the best time for me to schedule Zoom or be ready for a call?',widget=TimePickerInput)
-    Date = forms.DateField(label='What would be the best date for me to schedule Zoom or be ready for a call?', widget=DatePickerInput)
+    Date = forms.DateField(label='What would be the best date for me to schedule Zoom or be ready for a call?', widget=DatePickerInput)"""
+
+class contact_form(forms.Form):
+    Name = forms.CharField(max_length=255, label='Name')
+    Email = forms.EmailField(max_length=255, label='Email')
+    Message = forms.CharField(max_length=500, label='Message', widget=forms.Textarea)
