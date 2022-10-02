@@ -7,111 +7,16 @@ from datetime import datetime
 import os
 import mimetypes
 from django.http import HttpResponse
-from .graph import ammount_trained
+
 
 
 # Create your views here.
 
-def power_bi_view(request, *args, **kwargs):
-    return render(request, "pbi.html", {})
-
-
-def software_an_view(request, *args, **kwargs):
-    if request.method == 'GET':
-        context = {}
-
-        context['trained_chart'] = ammount_trained()
-
-    return render(request, "sftwr_analysis.html", context)
-
+def home_view(request, *args, **kwargs):
+    return render(request, "index.html", {})
 
 def about_view(request, *args, **kwargs):
-    if request.method == 'GET':
-        context = {}
-
-        context['trained_chart'] = ammount_trained()
-
-    return render(request, "about.html", context)
-
-
-def cover_letter_customize_view(request, *args, **kwargs):
-    if request.method == 'POST':
-        form = CV_Letter_Form(request.POST)
-        if form.is_valid():
-            form.save()
-
-            Name = form.cleaned_data['Name']
-            link = form.cleaned_data['link']
-            Job_type = form.cleaned_data['Job_type']
-            Field_Applied = form.cleaned_data['Field_Applied']
-
-            send_mail(Name + ' Filled out the Cover Letter Form',
-                      Name + ' - ' + link + ' - ' + Job_type + ' - ' + Field_Applied,
-                      'myresumeonlinekcjr@gmail.com', ['kcaldonjr@gmail.com', 'myresumeonlinekcjr@gmail.com'])
-
-            # selection for all healthcare jobs
-            if 'Yes' in Job_type:
-                context = {'Name': Name, 'link': link, 'Job_type': Job_type, 'Field_Applied': Field_Applied}
-
-                return render(request, 'cv_bh_sa.html', context)
-            # selections for software but no healthcare
-            if 'No' in Job_type and 'Software Analyst' in Field_Applied:
-                context = {'Name': Name, 'link': link, 'Job_type': Job_type, 'Field_Applied': Field_Applied}
-
-                return render(request, 'cv_bh_sa.html', context)
-
-            # selections for Data Analyst only
-            if 'No' in Job_type and 'Data Analyst' in Field_Applied:
-                context = {'Name': Name, 'link': link, 'Job_type': Job_type, 'Field_Applied': Field_Applied}
-
-                return render(request, 'cv_da.html', context)
-            # selection for Programing only
-            if 'No' in Job_type and 'Programing' in Field_Applied:
-                context = {'Name': Name, 'link': link, 'Job_type': Job_type, 'Field_Applied': Field_Applied}
-
-                return render(request, 'cv_op.html', context)
-
-            else:
-                context = {'Name': Name, 'link': link, 'Job_type': Job_type, 'Field_Applied': Field_Applied}
-
-                return render(request, 'cv_bh_sa.html', context)
-
-        else:
-            messages.error(request, 'Unknown Error: Operation Cancelled')
-
-    else:
-        form = CV_Letter_Form()
-
-    return render(request, "cover_letter_customize.html", {'form': form})
-
-
-def cv_bh_sa_view(request, *args, **kwargs):
-    return render(request, "cv_bh_sa.html", {})
-
-
-def cv_op_view(request, *args, **kwargs):
-    return render(request, "cv_op.html", {})
-
-
-def cv_da_view(request, *args, **kwargs):
-    return render(request, "cv_da.html", {})
-
-
-def jobhx_view(request, *args, **kwargs):
-    return render(request, "jobhx.html", {})
-
-
-def school_view(request, *args, **kwargs):
-    return render(request, "School.html", {})
-
-
-def ref_view(request, *args, **kwargs):
-    return render(request, "references.html", {})
-
-
-def skills_view(request, *args, **kwargs):
-    return render(request, "skills.html", {})
-
+    return render(request, "about.html", {})
 
 def call_view(request, *args, **kwargs):
     if request.method == 'POST':
@@ -141,24 +46,11 @@ def call_view(request, *args, **kwargs):
 
     return render(request, "call.html", {'form': form})
 
-
-def dl_resume_view(request, *args, **kwargs):
-    if request.method == 'GET':
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        filepath = BASE_DIR + '/static/Kevin Caldon - Resume.pdf'
-        path = open(filepath, 'rb')
-        mime_type, _ = mimetypes.guess_type(filepath)
-        response = HttpResponse(path, content_type=mime_type)
-        response['Content-Disposition'] = "attachment; filename=%s" % 'Kevin Caldon - Resume.pdf'
-        return response
-    else:
-        pass
-    return redirect('home')
-
-
 def pbi_embedded_view(request, *args, **kwargs):
     return render(request, "PBI_interactive.html", {})
 
+def report_list_view(request, *args, **kwargs):
+    return render(request, "report_list.html", {})
 
-def home_view(request, *args, **kwargs):
-    return render(request, "index.html", {})
+
+
